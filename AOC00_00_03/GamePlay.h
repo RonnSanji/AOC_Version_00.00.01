@@ -16,8 +16,14 @@
 // GamePlay
 @interface GamePlay : CCLayer
 {
-
+    NSInteger _actorDirection;
 }
+
+typedef enum :NSInteger
+{
+    Actor_left =0,
+    Actor_right,
+}ActorDirection;
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;

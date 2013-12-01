@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		4022D9E8182F637200F3EDBA /* BackGround.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4022D9E7182F637200F3EDBA /* BackGround.mm */; };
 		4022D9EA182F667C00F3EDBA /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 4022D9E9182F667C00F3EDBA /* background.png */; };
-		4063EC691841A0DA00300B64 /* Monster.m in Sources */ = {isa = PBXBuildFile; fileRef = 4063EC681841A0DA00300B64 /* Monster.m */; };
 		4063EC6E18422E9A00300B64 /* Actor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4063EC6D18422E9A00300B64 /* Actor.m */; };
 		4063EC7118422F5100300B64 /* Ladder.m in Sources */ = {isa = PBXBuildFile; fileRef = 4063EC7018422F5100300B64 /* Ladder.m */; };
 		4063EC731842414000300B64 /* ladder1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4063EC721842414000300B64 /* ladder1.png */; };
+		407509DF184B0E59005AAC13 /* Monster.mm in Sources */ = {isa = PBXBuildFile; fileRef = 407509DE184B0E59005AAC13 /* Monster.mm */; };
+		407509E1184B1389005AAC13 /* monster.png in Resources */ = {isa = PBXBuildFile; fileRef = 407509E0184B1389005AAC13 /* monster.png */; };
 		40D9137C182E11CF00F7B7AC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D9137B182E11CF00F7B7AC /* QuartzCore.framework */; };
 		40D9137E182E11CF00F7B7AC /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D9137D182E11CF00F7B7AC /* OpenGLES.framework */; };
 		40D91380182E11CF00F7B7AC /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D9137F182E11CF00F7B7AC /* OpenAL.framework */; };
@@ -227,12 +228,13 @@
 		4022D9E7182F637200F3EDBA /* BackGround.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BackGround.mm; sourceTree = "<group>"; };
 		4022D9E9182F667C00F3EDBA /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		4063EC671841A0DA00300B64 /* Monster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Monster.h; sourceTree = "<group>"; };
-		4063EC681841A0DA00300B64 /* Monster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Monster.m; sourceTree = "<group>"; };
 		4063EC6C18422E9A00300B64 /* Actor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Actor.h; sourceTree = "<group>"; };
 		4063EC6D18422E9A00300B64 /* Actor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Actor.m; sourceTree = "<group>"; };
 		4063EC6F18422F5100300B64 /* Ladder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ladder.h; sourceTree = "<group>"; };
 		4063EC7018422F5100300B64 /* Ladder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ladder.m; sourceTree = "<group>"; };
 		4063EC721842414000300B64 /* ladder1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ladder1.png; sourceTree = "<group>"; };
+		407509DE184B0E59005AAC13 /* Monster.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Monster.mm; sourceTree = "<group>"; };
+		407509E0184B1389005AAC13 /* monster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monster.png; sourceTree = "<group>"; };
 		40D91378182E11CF00F7B7AC /* AOC00_00_03.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AOC00_00_03.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40D9137B182E11CF00F7B7AC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		40D9137D182E11CF00F7B7AC /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -658,7 +660,7 @@
 				4063EC6F18422F5100300B64 /* Ladder.h */,
 				4063EC7018422F5100300B64 /* Ladder.m */,
 				4063EC671841A0DA00300B64 /* Monster.h */,
-				4063EC681841A0DA00300B64 /* Monster.m */,
+				407509DE184B0E59005AAC13 /* Monster.mm */,
 				4063EC6C18422E9A00300B64 /* Actor.h */,
 				4063EC6D18422E9A00300B64 /* Actor.m */,
 			);
@@ -1254,6 +1256,7 @@
 		40D915B1182E137800F7B7AC /* images */ = {
 			isa = PBXGroup;
 			children = (
+				407509E0184B1389005AAC13 /* monster.png */,
 				4063EC721842414000300B64 /* ladder1.png */,
 				4022D9E9182F667C00F3EDBA /* background.png */,
 				40D915EB182E198300F7B7AC /* backarrow.png */,
@@ -1380,6 +1383,7 @@
 				40D915E4182E137800F7B7AC /* startbg.png in Resources */,
 				40D915D5182E137800F7B7AC /* level.png in Resources */,
 				40D91398182E11CF00F7B7AC /* fps_images-ipadhd.png in Resources */,
+				407509E1184B1389005AAC13 /* monster.png in Resources */,
 				40D915DD182E137800F7B7AC /* stage1.png in Resources */,
 				40D915E7182E137800F7B7AC /* StartScene.jpg in Resources */,
 				40D915D3182E137800F7B7AC /* help_down.png in Resources */,
@@ -1405,7 +1409,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4063EC691841A0DA00300B64 /* Monster.m in Sources */,
 				40D91535182E11D000F7B7AC /* b2Settings.cpp in Sources */,
 				40D913D0182E11CF00F7B7AC /* CCActionTween.m in Sources */,
 				40D913E6182E11CF00F7B7AC /* CCDirector.m in Sources */,
@@ -1540,6 +1543,7 @@
 				40D9155F182E11D100F7B7AC /* b2ContactSolver.cpp in Sources */,
 				40D913B5182E11CF00F7B7AC /* CCActionEase.m in Sources */,
 				40D914E3182E11D000F7B7AC /* aabb.c in Sources */,
+				407509DF184B0E59005AAC13 /* Monster.mm in Sources */,
 				40D915A6182E11D100F7B7AC /* PhysicsSprite.mm in Sources */,
 				40D91510182E11D000F7B7AC /* b2Collision.cpp in Sources */,
 				40D914F5182E11D000F7B7AC /* quaternion.c in Sources */,

@@ -8,6 +8,15 @@
 
 #import "CCSprite.h"
 
-@interface Monster : CCSprite
+@interface Monster : CCSprite{
+
+ int _MonsterType;
+
+}
+@property int MonsterType;
+
+-(id) init;
+
+-(void)Monster_move;
 
 @end
