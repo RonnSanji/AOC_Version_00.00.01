@@ -10,34 +10,28 @@
 #import "GamePlay.h"
 
 // Needed to obtain the Navigation Controller
-#import "AppDelegate.h"
-#import "BackGround.h"
-#import "Ladder.h"
-#import "Monster.h"
+
 @interface GamePlay()
 {
     BOOL ActorisMoving;
     BackGround * bg1 ;
     BackGround * bg2 ;
     NSInteger adjustmentBG;
+    CGSize winSize;
     //我新增加一个数组来装梯子
     CCArray *ladderArray;
     Ladder * currentL;
-    
     //声明monster
     CCArray *monsterArray;
     Monster * currentM;
 
 }
-@property (nonatomic, strong) CCSprite *actor;
-@property NSInteger ActorDirection;
-@property (nonatomic, strong) CCAction *walkAction;
-@property (nonatomic, strong) CCAction *moveAction;
+
 @end
 
 @implementation GamePlay
 
-@synthesize ActorDirection= _actorDirection;
+
 +(CCScene *) scene
 {
 	CCScene *scene = [CCScene node];
@@ -49,53 +43,30 @@
     
 -(id) init
 {
-        adjustmentBG = 480;
+    
 	if( (self=[super init])) {
+        //播放音乐
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"game_music.mp3" loop:YES];
+        
+        //初始化数据
+        [self initData];
+        
+        //载入背景
+        [self loadBackground];
+        
+        //载入玩家
+        [self loadPlayer];
+        
+        
+        //加入怪物
+        [self madeMonster];
+        
+        //加入物品
+        [self madeItems];
 		
-        CGSize winSize = [[CCDirector sharedDirector] winSize];
-        
-        
-        //加入  BG
-        bg1 = [BackGround init];
-        [bg1 setAnchorPoint:ccp(0.5,0)];
-        bg1.position=ccp(160,0);
-        
-        bg2 = [BackGround  init];
-        [bg2 setAnchorPoint:ccp(0.5,0)];
-        bg2.position=ccp(160, adjustmentBG - 1);
-        
-        //l = [Ladder init];
-        
-        [self addChild:bg1 z:0];
-        [self addChild:bg2 z:0];
-        
-//        l= [[Ladder alloc]init];
-//        l.position = ccp(150.0f, 400.0f);
-       
-        
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Man_Action.plist"];
-        CCSpriteBatchNode *spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"Man_Action.png"];
-        [self addChild:spriteSheet];
-        NSMutableArray *walkAnimFrames = [NSMutableArray array];
-        
-        [walkAnimFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"left_stand.png"]];
-        [walkAnimFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"left_run.png"]];
-        [walkAnimFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"left_jump.png"]];
-        [walkAnimFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"left_run_2.png"]];
-        CCAnimation *walkAnim = [CCAnimation animationWithSpriteFrames:walkAnimFrames delay:0.18f];
-        self.actor = [CCSprite spriteWithSpriteFrameName:@"front.png"];
-        [self.actor setPosition:ccp(winSize.width/2, winSize.height/2)];
-        _actorDirection = arc4random()%1;
-        self.walkAction =[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkAnim]];
 
-        [self Actor_Move];
         
-      
- 
-        
-        [spriteSheet addChild:self.actor z:2];
-        self.isTouchEnabled = YES;
-      
+    
 
   
         ladderArray = [[CCArray alloc]init];
@@ -127,7 +98,7 @@
 
         }
 
-
+            
             //把梯子装进数组
         
         [ladderArray addObject:l];
@@ -140,7 +111,66 @@
 	return self;
    
 }
+#pragma mark -
+#pragma mark - 初始化数据
+- (void) initData
+{
+    winSize = [[CCDirector sharedDirector] winSize];
+    adjustmentBG = 480;
+    
+}
 
+#pragma mark -
+#pragma mark - 添加移动的背景与移动背景
+- (void) loadBackground
+{
+    //加入  BG
+    bg1 = [BackGround init];
+    [bg1 setAnchorPoint:ccp(0.5,0)];
+    bg1.position=ccp(160,0);
+    
+    bg2 = [BackGround  init];
+    [bg2 setAnchorPoint:ccp(0.5,0)];
+    bg2.position=ccp(160, adjustmentBG - 1);
+    
+    
+    [self addChild:bg1 z:0];
+    [self addChild:bg2 z:0];
+    
+}
+
+#pragma mark -
+#pragma mark - 玩家加载
+- (void) loadPlayer
+{
+    _actor = [[Actor alloc] init];
+    [_actor setPosition:ccp(winSize.width/2, winSize.height/2)];
+    
+    CCSpriteBatchNode *spriteSheet = [_actor Actor_move];
+    
+    [spriteSheet addChild:_actor z:2];
+    
+    [self addChild:spriteSheet];
+    
+    
+    self.isTouchEnabled = YES;
+    
+}
+
+#pragma mark -
+#pragma mark - 怪物制作 怪物发射
+- (void) madeMonster
+{
+    
+}
+
+
+#pragma mark -
+#pragma mark - 物品掉落
+- (void) madeItems
+{
+    
+}
 -(void) update:(ccTime)delta
 {
    [self scrollBackground];
@@ -161,46 +191,22 @@
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
-    CGPoint touchLocation = [self convertTouchToNodeSpace:touch];
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
-    float actorVelocity = screenSize.width / 2.5;
-    CGPoint moveDifference = ccpSub(touchLocation, self.actor.position);
-    
-    
-    float distanceToMove = ccpLength(moveDifference);
-    
-    float moveDuration = distanceToMove / actorVelocity;
-    
-    
-    if (moveDifference.x < 0) {
-        self.actor.flipX = NO;
-    } else {
-        self.actor.flipX = YES;
-    }
-    [self.actor stopAction:self.moveAction];
-    
-    if (!ActorisMoving) {
-        [self.actor runAction:self.walkAction];
+    CGPoint touchLocation = [self convertTouchToNodeSpace:touch];
+    if(touchLocation.x<screenSize.width/2 && touchLocation.y<screenSize.height)
+    {
+        NSLog(@"Actor change position!");
+        [_actor ChangeActorDirection];
+        [_actor Actor_move];
     }
     
-    CGPoint moveLocation = ccp(touchLocation.x, self.actor.position.y);
-    
-    
-    
-    self.moveAction = [CCSequence actions:
-                       [CCMoveTo actionWithDuration:moveDuration position:moveLocation],
-                       [CCCallFunc actionWithTarget:self selector:@selector(actorMoveEnded)],
-                       nil];
-    
-    [self.actor runAction:self.moveAction];
-    ActorisMoving = YES;
+    else
+    {
+        NSLog(@"Actor Jump !");
+    }
     
 }
-- (void)actorMoveEnded
-{
-    [self.actor stopAction:self.walkAction];
-    ActorisMoving = NO;
-}
+
 
 
 
@@ -232,8 +238,7 @@
            
            [currentL setPosition:ccp(currentL.position.x, currentL.position.y - 0.8)];
            [currentM setPosition:ccp(currentM.position.x+2, currentM.position.y - 0.8)];
-           
-           CGSize winSize = [[CCDirector sharedDirector] winSize];
+  
            if(currentL.position.y + currentL.contentSize.height/2 <  0){
            //这个时候重新设置梯子的位子，让梯子从顶部从新出现
            	currentL.position = ccp(currentL.position.x,winSize.height);
@@ -257,52 +262,53 @@
 
 }
 
--(void) Actor_Move
-{
-    CGSize screenSize = [[CCDirector sharedDirector] winSize];
-    CGPoint moveDifference ;
-    CGPoint moveLocation ;
-   
-    if(_actorDirection == Actor_left)
-    {
-        self.actor.flipX = NO;
-        moveDifference = ccpSub(ccp(0,self.actor.position.y), self.actor.position);
-         moveLocation = ccp(0, self.actor.position.y);
+//-(void) Actor_Move
+//{
+//    CGSize screenSize = [[CCDirector sharedDirector] winSize];
+//    CGPoint moveDifference ;
+//    CGPoint moveLocation ;
+//   
+//    if(_actorDirection == Actor_left)
+//    {
+//        self.actor.flipX = NO;
+//        moveDifference = ccpSub(ccp(0,self.actor.position.y), self.actor.position);
+//         moveLocation = ccp(0, self.actor.position.y);
+//
+//        
+//    }
+//    else if(_actorDirection == Actor_right)
+//    {
+//        self.actor.flipX = YES;
+//         moveDifference = ccpSub(ccp(screenSize.width,self.actor.position.y), self.actor.position);
+//         moveLocation = ccp(screenSize.width, self.actor.position.y);
+//    }
+//    
+//    
+//        float distanceToMove = ccpLength(moveDifference);
+//        float actorVelocity = screenSize.width / 2.5;
+//        float moveDuration = distanceToMove / actorVelocity;
+//    
+//        self.moveAction =  [CCSequence actions:
+//                           [CCMoveTo actionWithDuration:moveDuration position:moveLocation],
+//                           [CCCallFunc actionWithTarget:self selector:@selector(ChangeActorDirection)],
+//                           nil];
+//    
+//
+//}
 
-        
-    }
-    else if(_actorDirection == Actor_right)
-    {
-        self.actor.flipX = YES;
-         moveDifference = ccpSub(ccp(screenSize.width,self.actor.position.y), self.actor.position);
-         moveLocation = ccp(screenSize.width, self.actor.position.y);
-    }
-    
-    
-        float distanceToMove = ccpLength(moveDifference);
-        float actorVelocity = screenSize.width / 2.5;
-        float moveDuration = distanceToMove / actorVelocity;
-    
-        self.moveAction =  [CCSequence actions:
-                           [CCMoveTo actionWithDuration:moveDuration position:moveLocation],
-                           [CCCallFunc actionWithTarget:self selector:@selector(ChangeActorDirection)],
-                           nil];
-    
+//-(void)ChangeActorDirection
+//{
+//    if(_actorDirection==Actor_left)
+//    {
+//        _actorDirection = Actor_right;
+//    }
+//    else
+//    {
+//        _actorDirection = Actor_left;
+//    }
+//   [self Actor_Move];
+//}
 
-}
-
--(void)ChangeActorDirection
-{
-    if(_actorDirection==Actor_left)
-    {
-        _actorDirection = Actor_right;
-    }
-    else
-    {
-        _actorDirection = Actor_left;
-    }
-   [self Actor_Move];
-}
 
 
 

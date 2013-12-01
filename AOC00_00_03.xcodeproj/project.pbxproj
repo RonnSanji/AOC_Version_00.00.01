@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4022D9E8182F637200F3EDBA /* BackGround.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4022D9E7182F637200F3EDBA /* BackGround.mm */; };
 		4022D9EA182F667C00F3EDBA /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 4022D9E9182F667C00F3EDBA /* background.png */; };
-		4063EC6E18422E9A00300B64 /* Actor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4063EC6D18422E9A00300B64 /* Actor.m */; };
+		4063EC6E18422E9A00300B64 /* Actor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4063EC6D18422E9A00300B64 /* Actor.mm */; };
 		4063EC7118422F5100300B64 /* Ladder.m in Sources */ = {isa = PBXBuildFile; fileRef = 4063EC7018422F5100300B64 /* Ladder.m */; };
 		4063EC731842414000300B64 /* ladder1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4063EC721842414000300B64 /* ladder1.png */; };
 		407509DF184B0E59005AAC13 /* Monster.mm in Sources */ = {isa = PBXBuildFile; fileRef = 407509DE184B0E59005AAC13 /* Monster.mm */; };
@@ -229,7 +229,7 @@
 		4022D9E9182F667C00F3EDBA /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		4063EC671841A0DA00300B64 /* Monster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Monster.h; sourceTree = "<group>"; };
 		4063EC6C18422E9A00300B64 /* Actor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Actor.h; sourceTree = "<group>"; };
-		4063EC6D18422E9A00300B64 /* Actor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Actor.m; sourceTree = "<group>"; };
+		4063EC6D18422E9A00300B64 /* Actor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Actor.mm; sourceTree = "<group>"; };
 		4063EC6F18422F5100300B64 /* Ladder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ladder.h; sourceTree = "<group>"; };
 		4063EC7018422F5100300B64 /* Ladder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ladder.m; sourceTree = "<group>"; };
 		4063EC721842414000300B64 /* ladder1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ladder1.png; sourceTree = "<group>"; };
@@ -662,7 +662,7 @@
 				4063EC671841A0DA00300B64 /* Monster.h */,
 				407509DE184B0E59005AAC13 /* Monster.mm */,
 				4063EC6C18422E9A00300B64 /* Actor.h */,
-				4063EC6D18422E9A00300B64 /* Actor.m */,
+				4063EC6D18422E9A00300B64 /* Actor.mm */,
 			);
 			name = Sprite;
 			sourceTree = "<group>";
@@ -1515,7 +1515,7 @@
 				4022D9E8182F637200F3EDBA /* BackGround.mm in Sources */,
 				40D9151D182E11D000F7B7AC /* b2ChainShape.cpp in Sources */,
 				40D91520182E11D000F7B7AC /* b2CircleShape.cpp in Sources */,
-				4063EC6E18422E9A00300B64 /* Actor.m in Sources */,
+				4063EC6E18422E9A00300B64 /* Actor.mm in Sources */,
 				40D914C7182E11D000F7B7AC /* CDOpenALSupport.m in Sources */,
 				40D91440182E11CF00F7B7AC /* ccShaders.m in Sources */,
 				40D91408182E11CF00F7B7AC /* CCMenuItem.m in Sources */,

@@ -49,6 +49,7 @@
 	// for rotation and other messages
 	[director_ setDelegate:self];
 	
+    [[CCSpriteFrameCache sharedSpriteFrameCache]addSpriteFramesWithFile:@"Man_Action.plist"];
 	// 2D projection
 	[director_ setProjection:kCCDirectorProjection2D];
 	//	[director setProjection:kCCDirectorProjection3D];

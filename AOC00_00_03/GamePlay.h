@@ -10,20 +10,21 @@
 
 // When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
-
+#import "Actor.h"
+#import "AppDelegate.h"
+#import "BackGround.h"
+#import "Ladder.h"
+#import "Monster.h"
 
 
 // GamePlay
 @interface GamePlay : CCLayer
 {
     NSInteger _actorDirection;
+    Actor * _actor;
 }
 
-typedef enum :NSInteger
-{
-    Actor_left =0,
-    Actor_right,
-}ActorDirection;
+
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;
