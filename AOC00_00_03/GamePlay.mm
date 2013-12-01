@@ -105,6 +105,7 @@
         [self addChild:l z:1];
         [monsterArray addObject:m];
         [self addChild:m z:1];
+        
     }
        [self scheduleUpdate];
 	}
@@ -121,7 +122,7 @@
 }
 
 #pragma mark -
-#pragma mark - 添加移动的背景与移动背景
+#pragma mark - 添加移动的背景与移动背景 Ladder 也可以加里面。
 - (void) loadBackground
 {
     //加入  BG
@@ -151,7 +152,7 @@
     [spriteSheet addChild:_actor z:2];
     
     [self addChild:spriteSheet];
-    
+    [_actor release];
     
     self.isTouchEnabled = YES;
     
@@ -229,7 +230,7 @@
     
        for(int i=0; i<[ladderArray count]; i++)
        {
-           //Ladder * l =[[Ladder alloc]init];
+
            currentL = [[Ladder alloc]init];
            currentL = [ladderArray objectAtIndex:i];
            currentM = [[Monster alloc] init];
@@ -262,54 +263,10 @@
 
 }
 
-//-(void) Actor_Move
-//{
-//    CGSize screenSize = [[CCDirector sharedDirector] winSize];
-//    CGPoint moveDifference ;
-//    CGPoint moveLocation ;
-//   
-//    if(_actorDirection == Actor_left)
-//    {
-//        self.actor.flipX = NO;
-//        moveDifference = ccpSub(ccp(0,self.actor.position.y), self.actor.position);
-//         moveLocation = ccp(0, self.actor.position.y);
-//
-//        
-//    }
-//    else if(_actorDirection == Actor_right)
-//    {
-//        self.actor.flipX = YES;
-//         moveDifference = ccpSub(ccp(screenSize.width,self.actor.position.y), self.actor.position);
-//         moveLocation = ccp(screenSize.width, self.actor.position.y);
-//    }
-//    
-//    
-//        float distanceToMove = ccpLength(moveDifference);
-//        float actorVelocity = screenSize.width / 2.5;
-//        float moveDuration = distanceToMove / actorVelocity;
-//    
-//        self.moveAction =  [CCSequence actions:
-//                           [CCMoveTo actionWithDuration:moveDuration position:moveLocation],
-//                           [CCCallFunc actionWithTarget:self selector:@selector(ChangeActorDirection)],
-//                           nil];
-//    
-//
-//}
+-(void)dealloc{
 
-//-(void)ChangeActorDirection
-//{
-//    if(_actorDirection==Actor_left)
-//    {
-//        _actorDirection = Actor_right;
-//    }
-//    else
-//    {
-//        _actorDirection = Actor_left;
-//    }
-//   [self Actor_Move];
-//}
-
-
-
+    [super dealloc];
+    
+}
 
 @end
