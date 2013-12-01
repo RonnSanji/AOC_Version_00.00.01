@@ -84,20 +84,19 @@
         [walkAnimFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"left_run_2.png"]];
         CCAnimation *walkAnim = [CCAnimation animationWithSpriteFrames:walkAnimFrames delay:0.18f];
         self.actor = [CCSprite spriteWithSpriteFrameName:@"front.png"];
+        [self.actor setPosition:ccp(winSize.width/2, winSize.height/2)];
+        _actorDirection = arc4random()%1;
         self.walkAction =[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkAnim]];
 
-
+        [self Actor_Move];
         
-        [self.actor setPosition:ccp(winSize.width/2, winSize.height/2)];
-       // [self Actor_Move];
+      
+ 
         
         [spriteSheet addChild:self.actor z:2];
         self.isTouchEnabled = YES;
       
-         //l = [Ladder init];
-        
-        
-        //CCSprite *l = [CCSprite spriteWithFile:@"ladder1.png"];
+
   
         ladderArray = [[CCArray alloc]init];
         monsterArray = [[CCArray alloc] init];
@@ -260,22 +259,49 @@
 
 -(void) Actor_Move
 {
-    _actorDirection = Actor_left;
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
-
+    CGPoint moveDifference ;
+    CGPoint moveLocation ;
+   
     if(_actorDirection == Actor_left)
     {
-        CGPoint moveDifference = ccpSub(ccp(0,self.actor.position.y), self.actor.position);
+        self.actor.flipX = NO;
+        moveDifference = ccpSub(ccp(0,self.actor.position.y), self.actor.position);
+         moveLocation = ccp(0, self.actor.position.y);
+
+        
+    }
+    else if(_actorDirection == Actor_right)
+    {
+        self.actor.flipX = YES;
+         moveDifference = ccpSub(ccp(screenSize.width,self.actor.position.y), self.actor.position);
+         moveLocation = ccp(screenSize.width, self.actor.position.y);
+    }
+    
+    
         float distanceToMove = ccpLength(moveDifference);
         float actorVelocity = screenSize.width / 2.5;
         float moveDuration = distanceToMove / actorVelocity;
-        CGPoint moveLocation = ccp(0, self.actor.position.y);
-        self.moveAction = [CCSequence actions:
+    
+        self.moveAction =  [CCSequence actions:
                            [CCMoveTo actionWithDuration:moveDuration position:moveLocation],
-                           [CCCallFunc actionWithTarget:self selector:@selector(actorMoveEnded)],
+                           [CCCallFunc actionWithTarget:self selector:@selector(ChangeActorDirection)],
                            nil];
+    
+
+}
+
+-(void)ChangeActorDirection
+{
+    if(_actorDirection==Actor_left)
+    {
+        _actorDirection = Actor_right;
     }
-    [self runAction:self.moveAction];
+    else
+    {
+        _actorDirection = Actor_left;
+    }
+   [self Actor_Move];
 }
 
 
