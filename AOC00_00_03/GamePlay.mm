@@ -21,8 +21,9 @@
     BackGround * bg2 ;
     NSInteger adjustmentBG;
     //我新增加一个数组来装梯子
-    NSMutableArray *ladderArray;
-    Ladder *l;
+    CCArray *ladderArray;
+    Ladder * currentL;
+   
 }
 @property (nonatomic, strong) CCSprite *actor;
 @property (nonatomic, strong) CCAction *walkAction;
@@ -57,13 +58,14 @@
         [bg2 setAnchorPoint:ccp(0.5,0)];
         bg2.position=ccp(160, adjustmentBG - 1);
         
-        l = [Ladder init];
+        //l = [Ladder init];
         
         [self addChild:bg1 z:0];
         [self addChild:bg2 z:0];
         
-        
-        
+//        l= [[Ladder alloc]init];
+//        l.position = ccp(150.0f, 400.0f);
+       
         
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Man_Action.plist"];
         CCSpriteBatchNode *spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"Man_Action.png"];
@@ -82,38 +84,39 @@
         [spriteSheet addChild:self.actor z:2];
         self.isTouchEnabled = YES;
       
-        //l = [[Ladder alloc] init];
-        //CCSprite *l = [CCSprite spriteWithFile:@"ladder1.png"];
-        l.position = ccp(150.0f, 400.0f);
+         //l = [Ladder init];
         
-//        for(int i=0; i<4; i++)
-//        {
-//            Ladder *l = [[Ladder alloc] init];
-//            l.tag = i+10;
-//            //设置每个梯子的位置，x的位子是0,y的位置递增100每个
-//            switch(i)
-//            {
-//                case 0:
-//                    l.position=(ccp(160,400));
-//                    break;
-//                    
-//                case 1:
-//                    l.position=(ccp(160,300));
-//                    break;
-//                    
-//                case 2:
-//                    l.position=(ccp(160,200));
-//                    break;
-//                    
-//                case 3:
-//                    l.position=(ccp(160,100));
-//                    break;
-//        }
+        
+        //CCSprite *l = [CCSprite spriteWithFile:@"ladder1.png"];
+  
+        ladderArray = [[CCArray alloc]init];
+        for(int i=0; i<3; i++)
+        {
+             Ladder *l = [[Ladder alloc] init];
+            l.tag = i+10;
+            //设置每个梯子的位置，x的位子是0,y的位置递增100每个
+            switch(i)
+            {
+                case 0:
+                    l.position=(ccp(160,420));
+                    break;
+                    
+                case 1:
+                    l.position=(ccp(160,260));
+                    break;
+                    
+                case 2:
+                    l.position=(ccp(160,100));
+                    break;
 
-        [self addChild:l z:1];
+        }
+
+
             //把梯子装进数组
-        //[ladderArray addObject:l];
-    //}
+        
+        [ladderArray addObject:l];
+        [self addChild:l z:1];
+    }
        [self scheduleUpdate];
 	}
 	return self;
@@ -123,12 +126,7 @@
 -(void) update:(ccTime)delta
 {
    [self scrollBackground];
-   [l Ladder_move ];
-//   for(int i=0; i<[ladderArray count]; i++)
-//   {
-//       [[ladderArray objectAtIndex:i] Ladder_move];
-//    
-//   }
+   [self Ladder_move ];
     
 }
 - (void)registerWithTouchDispatcher
@@ -192,5 +190,25 @@
     [bg2 setPosition:ccp(160, adjustmentBG - 1)];
 }
 
+// ladder move
+-(void)Ladder_move {
+    
+       for(int i=0; i<[ladderArray count]; i++)
+       {
+           //Ladder * l =[[Ladder alloc]init];
+           currentL = [[Ladder alloc]init];
+           currentL = [ladderArray objectAtIndex:i];
+           [currentL setPosition:ccp(currentL.position.x, currentL.position.y - 1.2)];
+           
+           CGSize winSize = [[CCDirector sharedDirector] winSize];
+           if(currentL.position.y + currentL.contentSize.height/2 <  0){
+           
+           //这个时候重新设置梯子的位子，让梯子从底部从新出现
+           	currentL.position = ccp(currentL.position.x,winSize.height);
+           }
+    
+       }
+
+}
 
 @end

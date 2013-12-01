@@ -13,12 +13,10 @@
 @synthesize LadderType = _LadderType;
 
 //对梯子初始化，我们的梯子都是一样的，所以type先用1，如果以后有更多的梯子可以用这个方法扩充
-+(id) init
+-(id) init
 {
-    if(self = [super init])
-    {
         self=[CCSprite spriteWithFile:@"ladder1.png"];
-    }
+    
     return self;
 }
 
@@ -29,12 +27,12 @@
     [self setPosition:ccp(self.position.x, self.position.y - 3)];
 
 	//如果梯子的y加上自身一半高度小于0,这是说梯子往上移动时候，超出的屏幕范围
-	CGSize winSize = [[CCDirector sharedDirector] winSize];
-	if(self.position.y + self.contentSize.height/2 <  0){
+	//CGSize winSize = [[CCDirector sharedDirector] winSize];
+	//if(self.position.y + self.contentSize.height/2 <  0){
 
 		//这个时候重新设置梯子的位子，让梯子从底部从新出现
-		self.position = ccp(0,winSize.height);
-	}
+	//	self.position = ccp(0,winSize.height);
+	//}
 
 
 

@@ -15,7 +15,7 @@
 }
 @property int LadderType;
 
-+(id) init;
+-(id) init;
 //+(id) initWithType:(int) Type;
 
 -(void)Ladder_move;

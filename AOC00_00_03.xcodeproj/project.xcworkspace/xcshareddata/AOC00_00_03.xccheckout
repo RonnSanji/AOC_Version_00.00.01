@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>8B7F72B3-54D2-40F9-808F-088591224E3F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>AOC00_00_03</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1F88E005-C268-47C4-85A0-0F4BA8E4B79D</key>
+		<string>https://github.com/RonnSanji/AOC_Version_00.00.01.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>AOC00_00_03.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1F88E005-C268-47C4-85A0-0F4BA8E4B79D</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/RonnSanji/AOC_Version_00.00.01.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1F88E005-C268-47C4-85A0-0F4BA8E4B79D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1F88E005-C268-47C4-85A0-0F4BA8E4B79D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>AOC_Version_00.00</string>
+		</dict>
+	</array>
+</dict>
+</plist>
