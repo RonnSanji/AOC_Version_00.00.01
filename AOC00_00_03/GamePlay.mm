@@ -56,55 +56,16 @@
         
         //载入玩家
         [self loadPlayer];
-        
-        
+
+        //载入梯子和障碍物
+        [self loadLadder];
+                
         //加入怪物
         [self madeMonster];
         
         //加入物品
         [self madeItems];
-		
-
-        
-    
-
-  
-        ladderArray = [[CCArray alloc]init];
-        monsterArray = [[CCArray alloc] init];
-        for(int i=0; i<3; i++)
-        {
-             Ladder *l = [[Ladder alloc] init];
-             Monster *m = [[Monster alloc] init];
-            
-            l.tag = i+10;
-            m.tag = i+20;
-            //设置每个梯子的位置，x的位子是0,y的位置递增100每个
-            switch(i)
-            {
-                case 0:
-                    l.position=(ccp(160,420));
-                    m.position=(ccp(0,390));
-                    break;
-                    
-                case 1:
-                    l.position=(ccp(160,260));
-                    m.position=(ccp(0,230));
-                    break;
-                    
-                case 2:
-                    l.position=(ccp(160,100));
-                    m.position=(ccp(0,70));
-                    break;
-
-        }
-
-            
-            //把梯子装进数组
-        
-        [ladderArray addObject:l];
-        [self addChild:l z:1];
-        [monsterArray addObject:m];
-        [self addChild:m z:1];
+		      
     }
        [self scheduleUpdate];
 	}
@@ -158,6 +119,47 @@
 }
 
 #pragma mark -
+#pragma mark - 创建梯子和障碍物
+-(void) loadLadder
+{
+
+        ladderArray = [[CCArray alloc]init];
+        monsterArray = [[CCArray alloc] init];
+        for(int i=0; i<3; i++)
+        {
+             Ladder *l = [[Ladder alloc] init];
+             Monster *m = [[Monster alloc] init];
+            
+            l.tag = i+10;
+            m.tag = i+20;
+            //设置每个梯子的位置，x的位子是0,y的位置递增100每个
+            switch(i)
+            {
+                case 0:
+                    l.position=(ccp(160,420));
+                    m.position=(ccp(0,390));
+                    break;
+                    
+                case 1:
+                    l.position=(ccp(160,260));
+                    m.position=(ccp(0,230));
+                    break;
+                    
+                case 2:
+                    l.position=(ccp(160,100));
+                    m.position=(ccp(0,70));
+                    break;
+
+        }            
+            //把梯子装进数组
+        
+        [ladderArray addObject:l];
+        [self addChild:l z:1];
+        [monsterArray addObject:m];
+        [self addChild:m z:1];
+}
+
+#pragma mark -
 #pragma mark - 怪物制作 怪物发射
 - (void) madeMonster
 {
@@ -174,7 +176,24 @@
 -(void) update:(ccTime)delta
 {
    [self scrollBackground];
-   [self Ladder_move ];
+   //[self Ladder_move ];
+   
+    //new ladder
+     for(int i=0; i<[ladderArray count]; i++)
+       {
+           //Ladder * l =[[Ladder alloc]init];
+           currentL = [[Ladder alloc]init];
+           currentL = [ladderArray objectAtIndex:i];
+           currentM = [[Monster alloc] init];
+           currentM = [monsterArray objectAtIndex:i];
+
+           [currentL Ladder_move];
+           [currentM Monster_move];
+       }
+
+
+
+    //end of new ladder
 
     
 }
@@ -225,42 +244,42 @@
 }
 
 // ladder move
--(void)Ladder_move {
+// -(void)Ladder_move {
     
-       for(int i=0; i<[ladderArray count]; i++)
-       {
-           //Ladder * l =[[Ladder alloc]init];
-           currentL = [[Ladder alloc]init];
-           currentL = [ladderArray objectAtIndex:i];
-           currentM = [[Monster alloc] init];
-           currentM = [monsterArray objectAtIndex:i];
+//        for(int i=0; i<[ladderArray count]; i++)
+//        {
+//            //Ladder * l =[[Ladder alloc]init];
+//            currentL = [[Ladder alloc]init];
+//            currentL = [ladderArray objectAtIndex:i];
+//            currentM = [[Monster alloc] init];
+//            currentM = [monsterArray objectAtIndex:i];
            
            
-           [currentL setPosition:ccp(currentL.position.x, currentL.position.y - 0.8)];
-           [currentM setPosition:ccp(currentM.position.x+2, currentM.position.y - 0.8)];
+//            [currentL setPosition:ccp(currentL.position.x, currentL.position.y - 0.8)];
+//            [currentM setPosition:ccp(currentM.position.x+2, currentM.position.y - 0.8)];
   
-           if(currentL.position.y + currentL.contentSize.height/2 <  0){
-           //这个时候重新设置梯子的位子，让梯子从顶部从新出现
-           	currentL.position = ccp(currentL.position.x,winSize.height);
-           }
-           if(currentM.position.x + currentM.contentSize.width/2 > winSize.width){
+//            if(currentL.position.y + currentL.contentSize.height/2 <  0){
+//            //这个时候重新设置梯子的位子，让梯子从顶部从新出现
+//            	currentL.position = ccp(currentL.position.x,winSize.height);
+//            }
+//            if(currentM.position.x + currentM.contentSize.width/2 > winSize.width){
                
-               //这个时候重新设置梯子的位子，让梯子从底部从新出现
-                currentM.position = ccp(0,currentM.position.y);
-               //currentL.position = ccp(currentL.position.x,winSize.height);
-           }
+//                //这个时候重新设置梯子的位子，让梯子从底部从新出现
+//                 currentM.position = ccp(0,currentM.position.y);
+//                //currentL.position = ccp(currentL.position.x,winSize.height);
+//            }
            
-           if(currentM.position.y + currentM.contentSize.height/2 <  0){
+//            if(currentM.position.y + currentM.contentSize.height/2 <  0){
                
-               //这个时候重新设置梯子的位子，让梯子从底部从新出现
-               currentM.position = ccp(currentM.position.x,currentL.position.y-30);
-           }
+//                //这个时候重新设置梯子的位子，让梯子从底部从新出现
+//                currentM.position = ccp(currentM.position.x,currentL.position.y-30);
+//            }
            
            
     
-       }
+//        }
 
-}
+// }
 
 //-(void) Actor_Move
 //{
