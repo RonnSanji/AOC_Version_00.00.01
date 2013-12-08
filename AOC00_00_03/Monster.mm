@@ -14,10 +14,12 @@
 
 //对梯子初始化，我们的梯子都是一样的，所以type先用1，如果以后有更多的梯子可以用这个方法扩充
 -(id) init
-{
-        self=[CCSprite spriteWithFile:@"monster.png"];
+{       
+		
+	    self=[super initWithFile:@"monster.png"];
+       // self=[CCSprite spriteWithFile:@"monster.png"];
     
-    return self;
+   	    return self;
 }
 
 
@@ -46,6 +48,21 @@
 	// 	this->changTime = 30;
 	// 	this->ChangeType();
 	// }
+	 [self setPosition:ccp(self.position.x+2, self.position.y - 0.8)];
+	 if(self.position.x + self.contentSize.width/2 > winSize.width){
+               
+               //这个时候重新设置梯子的位子，让梯子从底部从新出现
+                self.position = ccp(0,self.position.y);
+               //currentL.position = ccp(currentL.position.x,winSize.height);
+           }
+           
+           if(self.position.y + self.contentSize.height/2 <  0){
+               
+               //这个时候重新设置梯子的位子，让梯子从底部从新出现
+               self.position = ccp(self.position.x,currentL.position.y-30);
+           }
+
+
 }
 
 
