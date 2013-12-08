@@ -6,12 +6,12 @@
 //
 //
 
-#import "CCSprite.h"
+#import "cocos2d.h"
 
 @interface Monster : CCSprite{
 
  int _MonsterType;
-
+ CGSize screenSize;
 }
 @property int MonsterType;
 

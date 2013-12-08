@@ -12,6 +12,8 @@
 @interface Ladder : CCSprite
 {
     int _LadderType;
+    CGSize screenSize;
+ 
 }
 @property int LadderType;
 

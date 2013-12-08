@@ -30,7 +30,6 @@
     return self;
 }
 
-//-(CCSpriteBatchNode*) Actor_move
 
 -(void) Actor_walk
 {
@@ -84,7 +83,11 @@
     float jumpactorVelocity ;
     float jumpDuration;
     
+    if(self.position.y==screenSize.height)
+    
     jumpDifference = ccpSub(ccp(self.position.x,self.position.y+40.f), self.position);
+    
+    
     jumpLocation = ccp(self.position.x, self.position.y+40.f);  //80 will be change to ladder position.y
     
      distanceTojump = ccpLength(jumpDifference);
@@ -97,6 +100,8 @@
     _jumpAction =  [CCSequence actions:
                    [CCJumpTo actionWithDuration:jumpDuration position:jumpLocation height:40 jumps:1],
                    [CCCallFunc actionWithTarget:self selector:@selector(Action_Derive)],nil];
+    
+   
     [self runAction:_jumpAction];
     
     return;

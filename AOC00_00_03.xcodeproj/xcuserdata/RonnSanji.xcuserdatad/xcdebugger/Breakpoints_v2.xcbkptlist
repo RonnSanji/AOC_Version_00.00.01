@@ -25,7 +25,7 @@
                   symbolName = "-[BackGround speed]"
                   moduleName = "AOC00_00_03"
                   urlString = "file://localhost/Users/RonnSanji/Documents/001_Developer/My%20Projects/001_AttacKonChrysanthemum/AOC_Git/AOC_Version_00.00.01/AOC00_00_03/BackGround.h"
-                  timestampString = "408168161.567754"
+                  timestampString = "408172273.378269"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "22"
@@ -39,7 +39,7 @@
                   symbolName = "-[BackGround setSpeed:]"
                   moduleName = "AOC00_00_03"
                   urlString = "file://localhost/Users/RonnSanji/Documents/001_Developer/My%20Projects/001_AttacKonChrysanthemum/AOC_Git/AOC_Version_00.00.01/AOC00_00_03/BackGround.h"
-                  timestampString = "408168161.568017"
+                  timestampString = "408172273.378523"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "22"
@@ -56,11 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AOC00_00_03/Actor.mm"
-            timestampString = "408168033.077145"
+            timestampString = "408171559.053352"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145">
+            startingLineNumber = "146"
+            endingLineNumber = "146">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -69,7 +69,7 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AOC00_00_03/Ladder.m"
+            filePath = "AOC00_00_03/Ladder.mm"
             timestampString = "406993222.458176"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -85,12 +85,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AOC00_00_03/Ladder.m"
-            timestampString = "407558564.176159"
+            filePath = "AOC00_00_03/Ladder.mm"
+            timestampString = "408171130.424369"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
             landmarkName = "-init"
             landmarkType = "5">
          </BreakpointContent>
@@ -102,27 +102,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AOC00_00_03/GamePlay.mm"
-            timestampString = "407607606.815908"
+            timestampString = "408170354.43666"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "-init"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AOC00_00_03/GamePlay.mm"
-            timestampString = "407607606.815908"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "-init"
             landmarkType = "5">
          </BreakpointContent>
@@ -164,11 +148,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AOC00_00_03/Actor.mm"
-            timestampString = "408168033.077145"
+            timestampString = "408171559.053352"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "-Actor_move"
             landmarkType = "5">
          </BreakpointContent>
@@ -180,11 +164,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AOC00_00_03/Actor.mm"
-            timestampString = "408168033.077145"
+            timestampString = "408171559.053352"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "-Actor_move"
             landmarkType = "5">
          </BreakpointContent>
@@ -212,12 +196,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AOC00_00_03/GamePlay.mm"
-            timestampString = "407867334.630271"
+            timestampString = "408171870.12112"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "277"
-            endingLineNumber = "277"
-            landmarkName = "-loadLadder"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
+            landmarkName = "-ccTouchEnded:withEvent:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -228,11 +212,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AOC00_00_03/Actor.mm"
-            timestampString = "408165416.573539"
+            timestampString = "408171559.053352"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "-Actor_move"
             landmarkType = "5">
          </BreakpointContent>
@@ -244,11 +228,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AOC00_00_03/Actor.mm"
-            timestampString = "408168033.077145"
+            timestampString = "408171559.053352"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "-Actor_move"
             landmarkType = "5">
          </BreakpointContent>
@@ -260,11 +244,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AOC00_00_03/Actor.mm"
-            timestampString = "408168033.077145"
+            timestampString = "408171559.053352"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "-Actor_move"
             landmarkType = "5">
          </BreakpointContent>
@@ -276,11 +260,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AOC00_00_03/Actor.mm"
-            timestampString = "408168033.077145"
+            timestampString = "408171559.053352"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
             landmarkName = "-ChangeActorDirection"
             landmarkType = "5">
          </BreakpointContent>
@@ -292,12 +276,140 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AOC00_00_03/Actor.mm"
-            timestampString = "408168033.077145"
+            timestampString = "408171559.053352"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
             landmarkName = "-ChangeActorDirection"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AOC00_00_03/GamePlay.mm"
+            timestampString = "408171870.12112"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "283"
+            endingLineNumber = "283"
+            landmarkName = "@implementation GamePlay"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AOC00_00_03/GamePlay.mm"
+            timestampString = "408171870.12112"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "283"
+            endingLineNumber = "283"
+            landmarkName = "@implementation GamePlay"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AOC00_00_03/GamePlay.mm"
+            timestampString = "408171870.12112"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "283"
+            endingLineNumber = "283"
+            landmarkName = "@implementation GamePlay"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AOC00_00_03/GamePlay.mm"
+            timestampString = "408171870.12112"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "283"
+            endingLineNumber = "283"
+            landmarkName = "@implementation GamePlay"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AOC00_00_03/Monster.mm"
+            timestampString = "408171999.668807"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "-Monster_move"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AOC00_00_03/Monster.mm"
+            timestampString = "408172016.884248"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "-Monster_move"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AOC00_00_03/Monster.mm"
+            timestampString = "408172019.820365"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "-Monster_move"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AOC00_00_03/Monster.mm"
+            timestampString = "408172021.660359"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "-Monster_move"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
