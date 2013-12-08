@@ -145,14 +145,18 @@
 - (void) loadPlayer
 {
     _actor = [[Actor alloc] init];
+    
     [_actor setPosition:ccp(winSize.width/2, winSize.height/2)];
-    
-    CCSpriteBatchNode *spriteSheet = [_actor Actor_move];
-    
+    CCSpriteBatchNode *spriteSheet = _actor.spriteSheet;
+    [_actor Action_Derive];
     [spriteSheet addChild:_actor z:2];
     
     [self addChild:spriteSheet];
-    [_actor release];
+   
+     NSLog(@ "Actor retainCount = %d", [_actor retainCount]);
+     [_actor release];
+     NSLog(@ "Actor retainCount = %d", [_actor retainCount]);
+
     
     self.isTouchEnabled = YES;
     
@@ -197,13 +201,16 @@
     if(touchLocation.x<screenSize.width/2 && touchLocation.y<screenSize.height)
     {
         NSLog(@"Actor change position!");
+        
         [_actor ChangeActorDirection];
-        [_actor Actor_move];
+        
     }
     
     else
     {
         NSLog(@"Actor Jump !");
+        [_actor Actor_jump];
+        
     }
     
 }

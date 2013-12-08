@@ -13,6 +13,18 @@
     CCSpriteBatchNode * _spirteSheet;
     CCAction *_walkAction;
     CCAction *_moveAction;
+    CCAction *_jumpAction;
+    CGSize screenSize;
+    CGPoint moveDifference ;
+    CGPoint moveLocation ;
+    CGPoint jumpDifference ;
+    CGPoint jumpLocation ;
+    
+
+
+    
+    bool _Actorismoving;
+    
 }
 typedef enum :NSInteger
 {
@@ -20,10 +32,19 @@ typedef enum :NSInteger
     Actor_right,
 }ActorDirection;
 
-@property NSInteger ActorDirection;
+typedef enum ordertype :NSInteger
+{
+    Actor_Jump_e = 0,
+    Actor_Move_e,
+    
+}ActorMoveOrder;
 
+@property NSInteger ActorDirection;
+@property (readonly) CCSpriteBatchNode* spriteSheet;
 -(id) init;
 
--(CCSpriteBatchNode*) Actor_move;
+-(void) Action_Derive;
+-(void) Actor_move;
+-(void) Actor_jump;
 -(void) ChangeActorDirection;
 @end
